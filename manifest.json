@@ -7,13 +7,23 @@
     "description": "Capture JSON and FormData payloads in real-time.",
     "permissions": ["sidePanel"],
     "host_permissions": ["<all_urls>"],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "ghost-api@abdelrahman.ashraf",
+            "strict_min_version": "140.0",
+            "data_collection_permissions": {
+                "required": ["none"]
+            }
+        }
+    },
     "icons": {
         "16": "icons/icon16.png",
         "32": "icons/icon32.png",
         "128": "icons/icon128.png"
     },
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "background.js",
+        "scripts": ["background.js"]
     },
     "action": {
         "default_title": "Open Sniffer",
@@ -24,6 +34,11 @@
     },
     "side_panel": {
         "default_path": "panel.html"
+    },
+    "sidebar_action": {
+        "default_panel": "panel.html",
+        "default_icon": "icons/icon32.png",
+        "default_title": "Ghost API"
     },
     "content_scripts": [
         {
